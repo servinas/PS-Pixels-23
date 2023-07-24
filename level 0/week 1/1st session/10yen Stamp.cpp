@@ -16,11 +16,17 @@ void RUN() {
 int main() {
     RUN();
     int x,y;
-    cin>>x>>y;
-    if(y<=x)cout<<0;
-    else{
-        cout<<ceil(((double )y-x)/10);
-    }
+  cin>>x>>y;
+
+  if(y<x){
+      cout<<0<<"\n";
+  }else{
+      int diff=y-x;
+      int ans=diff/10;
+      if(diff%10)ans++;
+      cout<<ans;
+
+  }
 
     return 0;
 }
