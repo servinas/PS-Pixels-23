@@ -19,9 +19,9 @@ int main() {
     cin>>l1>>r1>>l2>>r2;
     if(r1<=l2||r2<=l1)cout<<0<<endl;
     else{
-        int mr= min(r1,r2);
-        int ml=max(l1,l2);
-        cout<<mr-ml;
+       int maxl = max(l1, l2);
+        int minr = min(r1, r2);
+        cout << minr - maxl;
     }
 
     return 0;
