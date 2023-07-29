@@ -14,11 +14,11 @@ void RUN() {
 int arr[10];
 int main() {
     RUN();
-   int k=1;
-    for (int i = 1; i <=9 ; ++i) {
+   int k=0;
+    for (int i = 0; i <=9 ; ++i) {
         cin>>arr[i];
     }
-    for (int i = 0; i < 2; ++i) {
+    for (int i = 0; i < 3; ++i) {
        k=arr[k];
 
     }
