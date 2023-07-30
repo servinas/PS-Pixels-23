@@ -27,6 +27,7 @@ void points(int left=0,int right=n-1,int turn=0){
            points(left,right-1,!turn);
        }
     }else{
+           //dima's turn
         if(arr[left]>arr[right]){
             dima+=arr[left];
             points(left+1,right,!turn);
