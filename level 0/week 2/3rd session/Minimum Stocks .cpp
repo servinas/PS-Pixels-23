@@ -1,5 +1,5 @@
 /*link to the problem:
- *https://vjudge.net/problem/SPOJ-MINSTOCK/origin
+ * https://vjudge.net/problem/SPOJ-MINSTOCK/origin
  */
 
 #include<bits/stdc++.h>
@@ -22,32 +22,35 @@ int main() {
     int y;
     int type;
     map<string, int> mp;
-    set<pair<int, string>> st;
+    map<int, string> mp2;
+    multiset<int> ms;
     for (int i = 0; i < n; ++i) {
         cin >> type;
         if (type == 1) {
             //price of x =y
             cin >> x >> y;
             mp[x] = y;
-            st.insert({y, x});
+            mp2[y] = x;
+            ms.insert(y);
+      
         } else if (type == 2) {
             //price of x changed to y
             cin >> x >> y;
-           if(mp[x]!=-1) {
-                auto it = st.find({y, x});
-                st.erase(*it);
-            }
-            mp[x] = y;
-            st.insert({y, x});
 
+            int prev = mp[x];
+            ms.erase(prev);
+            mp[x] = y;
+            mp2.erase(prev);
+            mp2[y] = x;
+ 
+            ms.insert(y);
         } else {
             cin >> x;
-            //buy
-            // cout<<endl;
-            auto it = st.begin();
-            cout << it->second << " " << i + 1 << endl;
-            mp.erase(it->second);
-            st.erase(it);
+           
+            auto it = ms.begin();
+            cout << mp2[*it] << " " << i + 1 << endl;
+
+            ms.erase(it);
 
         }
     }
